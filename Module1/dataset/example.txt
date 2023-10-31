@@ -1,0 +1,36 @@
+[{"instruction": "You are a professional doctor. Based on the management guidelines, 
+provide comprehensive management recommendations for the following patient with diabetes:", 
+"input": "{Sex: Female, Age: 57, BMI: 24.4080691, SBP: 130, DBP: 78, heart rate: 72, Smoking: 
+occasionally smoking;, Drinking: Drinking alcohol when socializing;, History of blood pressure: 
+In 2005, elevated blood pressure was detected, which once reached 180/110mmHg. Now taking valsartan 
+treatment, the usual blood pressure is around 130/85mmHg. He denies the history of stroke;, 
+Medical history of circulatory system:  In 2014, color Doppler ultrasound showed rough carotid 
+intima and thickened carotid intima-media layer, and rough carotid intima from 2015 to 2017;, 
+Family history:  Father has high blood pressure, one brother has diabetes, and the other has a 
+history of rectal cancer and kidney cancer;, Eating habits:  balanced meat and vegetables;, 
+Physical activity: Body exercise frequency: every day; average running time: 60 minutes; 
+exercise items: walking;, Medical history of endocrine system: Elevated fasting blood sugar was 
+detected in 2005, and then he was diagnosed with type 2 diabetes. Now he is injecting insulin 
+(15U Lantus at night), and taking repaglinide orally, with a slightly controlled diet. Follow-up 
+fasting blood sugar is 7-8mmol/l; in 2000 Left and right dyslipidemia, triglyceride 4.63mmol/l in 
+2013, 6.75mmol/l in 2015, 4.92mmol/l in 2016; cholesterol 6mmol/l in 2013, 6.28mmol/l in 2015, 
+6.27mmol/l in 2016; Low-density lipoprotein 3.58mmol/l, taking fenofibrate and atorvastatin intermittently, 
+with a slightly controlled diet, normal blood lipids in 2017; thyroid nodules detected in 2013, 
+left 6*4mm, right 10*6mm, left in 2014 6.1*4.8mm, right 10.2*5.8mm, left 6*4mm, right 10*9mm in 2015, 
+left 6*5mm, right 10*8mm in 2016, left 6*5mm, right 13*7mm in 2017; bleeding in 2010 Elevated uric acid, 
+513.8umol/L in 2013, 502.8umol/l in 2014, 566.9umol/l in 2015, 430.1umol/l in 2016, denied gout attack, 
+did not take medicine, uncontrolled diet, normal blood uric acid in 2017;, Serum triglycerides: 3.21, 
+Total cholesterol: 4.95, High-density lipoprotein (HDL): 1.14, Low-density lipoprotein (LDL): 2.72, 
+Urine Albumin-to-Creatinine Ratio (UACR, mg/g): 33.4112990996339, Estimated glomerular filtration rate 
+(eGFR): 41.44014187, Fasting serum glucose: 8.94, Glycated hemoglobin (HbA1c): 10.5, Aspartate 
+aminotransferase (AST): 19.7, Alanine aminotransferase (ALT): 16.5, Gamma-glutamyl transferase (GGT): 21, 
+DR grade: 0, DME grade: 0}", "output":"Based on patient's medical history and examination indicators, 
+it suggests some integrated control measures including:(1) controlling blood pressure; (2) controlling 
+serum glucose level by adhering to doctor's guidance through taking Valsaratan medication with normal 
+systolic tension. Avoid high salt dietary intake or medicine effect when monitoring BP. (3) maintain 
+healthy sodium content in food consumption. Fourthly, make efforts for achieving treatment goal according 
+to specific requirements such as reducing fat-rich and sugars containing dishes while increasing plant 
+source richness in meal preparations. Fifthly, strengthen cardiovascular exercises during exercise time 
+of 15-20 minutes each day at moderate intensity. Finally, change living style based on periodical checking 
+of sugar index under professionally instructed guidelines to meet individual demands and target achievements 
+more effectively."},{"instruction":"...","input":"...","output":"..."},...]
