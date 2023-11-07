@@ -1,4 +1,4 @@
-# 🦙 👀 ⛑ DeepDR-LLM: Integrated Deep Learning & Language Models for Diabetes Care
+# 🦙 👀 ⛑ DeepDR-LLM: Integrated Image-based Deep Learning and Language Models for Primary Diabetes Care
 
 **DeepDR-LLM** provides a comprehensive solution for primary diabetes care by integrating image-based deep learning with expansive language models. This repository contains code for leveraging the Vision Transformer (ViT) for image processing, coupled with fine-tuned LLaMA models to generate insightful management recommendations for diabetes patients.
 
@@ -24,7 +24,7 @@ Module 1, powered by LLaMA, excels at generating comprehensive diagnostic and th
 
 1. **Dataset Building**
 
-   Ensure that your dataset is prepared as per the structure provided in `DeepDR-LLM/Module1/dataset/example.txt`. Sample format: [{"instruction":"...","input":"...","output":"..."}]. If the "input" requires DR and DME information, Module 2 can predict these.
+   Ensure that your dataset is prepared as per the structure provided in `DeepDR-LLM/Module1/Minimum/example.txt`. Sample format: [{"instruction":"...","input":"...","output":"..."}]. If the "input" requires DR and DME information, Module 2 can predict these.
 
 2. **Training**
 
