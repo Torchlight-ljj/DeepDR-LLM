@@ -74,7 +74,7 @@ Seg_model.load_state_dict(torch.load(Weights["Seg"][0]), strict=True)
 Seg_model = Seg_model.cuda()
 
 val_data = ListDataset(imgs,transform=transform_test)
-val_loader = torch.utils.data.DataLoader(val_data, batch_size=1,shuffle=False,num_workers = 20)
+val_loader = torch.utils.data.DataLoader(val_data, batch_size=1,shuffle=False,num_workers = 0)
 for i,img in enumerate(val_loader):
     DR = torch.argmax(DR_model(img.cuda()),dim=1).squeeze().detach().cpu().numpy()
     DME = torch.argmax(DME_model(img.cuda()),dim=1).squeeze().detach().cpu().numpy()

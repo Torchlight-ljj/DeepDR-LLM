@@ -23,7 +23,7 @@ transform_train = A.Compose([
     A.PadIfNeeded(min_height=896, min_width=896, border_mode=0),
     # A.CenterCrop(height=int(448), width=int(1024*0.7)), 
     A.RandomCrop(height=448, width=448, p=0.5),
-    A.Resize(height=INPUT_SIZE, width=INPUT_SIZE),
+    A.Resize(height=input_size, width=input_size),
     A.HorizontalFlip(p=0.5),
     A.VerticalFlip(p=0.5),
     A.RandomRotate90(p=0.5),
@@ -33,25 +33,24 @@ transform_train = A.Compose([
 transform_test = A.Compose([
     A.LongestMaxSize(max_size=896),
     A.PadIfNeeded(min_height=896, min_width=896, border_mode=0),
-    A.Resize(height=INPUT_SIZE, width=INPUT_SIZE),
     A.Normalize(),
     ToTensorV2()
 ])
 
 
 #data loader
-train_data = ListDataset('./train.txt',transform=transform_train, seg_flag=True)
-val_data = ListDataset('./test.txt',transform=transform_test, seg_flag=True)
-
-train_loader = torch.utils.data.DataLoader(train_data, batch_size=4,shuffle=True, num_workers = 20)
-val_loader = torch.utils.data.DataLoader(val_data, batch_size=1,shuffle=False, num_workers = 20)
+train_data = ListDataset('../Module2/Datalist/Segtrain.txt',transform=transform_train, seg_flag=True)
+val_data = ListDataset('../Module2/Datalist/Segtest.txt',transform=transform_test, seg_flag=True)
+#default bs = 1, workers = 0
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=1,shuffle=True, num_workers = 0)
+val_loader = torch.utils.data.DataLoader(val_data, batch_size=1,shuffle=False, num_workers = 0)
 
 #model
 model = DeepVit.vit_base_patch16(img_size=input_size, weight_init="nlhb",  seg_num_classes=class_nums)
 checkpoint_model = torch.load('path/to/vit_base.pth')['model']
 state_dict = model.state_dict()
 for k in ['head.weight', 'head.bias']:
-    if k in checkpoint_model and checkpoint_model[k].shape != state_dict[k].shape:
+    if k in checkpoint_model:
         print(f"Removing key {k} from pretrained checkpoint")
         del checkpoint_model[k]
 # interpolate position embedding
@@ -105,10 +104,10 @@ with open(net_name+"/acc.txt", "w") as f:
         # eval
         labels_group = []
         outputs_group = []
-        
+
         if True:
             print("Waiting Test!")
-            if epoch % 5 == 0:
+            if epoch % 1 == 0:
                 print('Saving model......')
                 if not os.path.exists(net_name+'/finals'):
                     os.mkdir(net_name+'/finals')
@@ -133,5 +132,6 @@ with open(net_name+"/acc.txt", "w") as f:
                     print(f"Epoch:{epoch}, Class {idx} - IoU: {ious[idx]:.4f}, F1 score: {f1_scores[idx]:.4f}.")
                     f.write(f"Epoch:{epoch}, Class {idx} - IoU: {ious[idx]:.4f}, F1 score: {f1_scores[idx]:.4f}.")
                 f.flush()
+        break
 
 print("Training Finished!!!")

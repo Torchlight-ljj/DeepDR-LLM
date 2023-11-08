@@ -1,4 +1,0 @@
-#classification task
-<image path> <class index>
-#segmentation task
-<image path> <mask path>

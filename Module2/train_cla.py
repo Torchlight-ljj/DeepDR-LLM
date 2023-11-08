@@ -13,7 +13,7 @@ import datetime
 from torch.utils.tensorboard import SummaryWriter  
 
 input_size= 448
-class_nums = 2
+class_nums = 5
 
 MEAN = [108.64628601 / 255, 75.86886597 / 255, 54.34005737 / 255]
 STD = [70.53946096 / 255, 51.71475228 / 255, 43.03428563 / 255]
@@ -53,11 +53,12 @@ transform_test = transforms.Compose([
 
 
 #data loader
-train_data = ListDataset('./train.txt',transform=transform_train)
-val_data = ListDataset('./test.txt',transform=transform_test)
+train_data = ListDataset('../Module2/Datalist/Clatrain.txt',transform=transform_train)
+val_data = ListDataset('../Module2/Datalist/Clatest.txt',transform=transform_test)
 
-train_loader = torch.utils.data.DataLoader(train_data, batch_size=8,shuffle=True, num_workers = 20)
-val_loader = torch.utils.data.DataLoader(val_data, batch_size=4,shuffle=False, num_workers = 20)
+#default bs = 1, workers = 0
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=1,shuffle=True, num_workers = 0)
+val_loader = torch.utils.data.DataLoader(val_data, batch_size=1,shuffle=False, num_workers = 0)
 
 #model
 model = DeepVit.vit_base_patch16(img_size=input_size, weight_init="nlhb",  cla_num_classes=class_nums)
@@ -118,7 +119,7 @@ with open(net_name+"/acc.txt", "w") as f:
         # eval
         if True:
             print("Waiting Test!")
-            if epoch % 5 == 0:
+            if epoch % 1 == 0:
                 print('Saving model......')
                 if not os.path.exists(net_name+'/finals'):
                     os.mkdir(net_name+'/finals')
@@ -141,5 +142,4 @@ with open(net_name+"/acc.txt", "w") as f:
                 print('EPOCH:{:5d},Acc:{:.3f},Precision:{:.3f},Recall:{:.3f},F1:{:.3f}.\n'.format(epoch + 1,classify_result[0],classify_result[1],classify_result[2],classify_result[3]))
                 f.write('EPOCH:{:5d},Acc:{:.3f},Precision:{:.3f},Recall:{:.3f},F1:{:.3f}.\n'.format(epoch + 1,classify_result[0],classify_result[1],classify_result[2],classify_result[3]))
                 f.flush()
-
 print("Training Finished!!!")
